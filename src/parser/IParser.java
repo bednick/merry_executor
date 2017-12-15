@@ -6,5 +6,7 @@ import java.util.Collection;
 
 public interface IParser {
 
-    Collection<Command> get_data();
+    void load(String fileName);
+
+    Collection<Command> getData();
 }
