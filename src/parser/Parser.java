@@ -26,6 +26,9 @@ public class Parser implements IParser {
                 new InputStreamReader(new FileInputStream(fileName), StandardCharsets.UTF_8));
         readLine(reader);
         while (nextLine != null) {
+            if (nextLine.isEmpty() || nextLine.startsWith("##")) {
+                continue;
+            }
             String[] spl = nextLine.split("#")[0].split(";");
             lines.add(new Command(
                     new HashSet<String>(Arrays.asList(spl[0].split(" "))),
