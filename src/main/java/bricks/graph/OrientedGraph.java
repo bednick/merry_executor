@@ -19,6 +19,9 @@ public class OrientedGraph<T> {
     }
 
     public void addVertex(T vertex) {
+        if (vertices.containsKey(vertex)) {
+            return;
+        }
         Vertex<T> v = new Vertex<T>(vertex);
         vertices.put(vertex, v);
         root.add(v);
