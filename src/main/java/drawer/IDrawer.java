@@ -15,6 +15,7 @@ import java.awt.*;
 import java.util.Collection;
 
 public interface IDrawer {
+   void draw(Collection<Command> graph);
   
 }
 
