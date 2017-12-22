@@ -53,11 +53,11 @@ public class DrawerGraph implements IDrawer {
             g.addVertex(command.getCommand());
             for (String vertex: command.getInStates()){
                 g.addVertex(vertex);
-                g.addEdge("Edge", command.getCommand(), vertex);
+                g.addEdge(String.format("%s_%s", vertex, command.getCommand()), command.getCommand(), vertex);
             }
             for (String vertex: command.getOutStates()){
                 g.addVertex(vertex);
-                g.addEdge("Edge", vertex, command.getCommand());
+                g.addEdge(String.format("%s_%s", vertex, command.getCommand()), vertex, command.getCommand());
             }
         }
     }

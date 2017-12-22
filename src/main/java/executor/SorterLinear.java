@@ -71,18 +71,19 @@ public class SorterLinear implements ISorter{
 
     private List<String> getCommandsList(OrientedGraph<Pair<String, Integer>> graph) {
         List<String> commands = new ArrayList<>();
-        Queue<Vertex<Pair<String, Integer>>> next = new LinkedList<>();
-        next.addAll(graph.getRoot());
+        Queue<Vertex<Pair<String, Integer>>> next = new LinkedList<>(); // vertex states
+        next.addAll(graph.getLeaf());
 
         while (!next.isEmpty()) {
             Vertex<Pair<String, Integer>> n = next.poll();
-            if (commands.contains(n.getObject().getKey())) {
-                continue;
+            for (Vertex<Pair<String, Integer>> in: n.getIn()) {
+                if (commands.contains(in.getObject().getKey())) {
+                    continue;
+                }
+                commands.add(in.getObject().getKey());
+                next.addAll(in.getIn());
             }
-            commands.add(n.getObject().getKey());
-            next.addAll(n.getIn());
         }
-
         return commands;
     }
 }
