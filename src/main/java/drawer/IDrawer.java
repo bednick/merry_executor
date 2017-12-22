@@ -17,7 +17,7 @@ import java.util.Collection;
 public interface IDrawer {
     void draw(Collection<Command> graph); //в каком виде мне будет даваться граф????
 
-    public static void main(String [] args) {
+    //public static void main(String [] args) {
 //        DirectedSparseGraph g = new DirectedSparseGraph();
 //        g.addVertex("Vertex1");
 //        g.addVertex("Vertex2");
@@ -43,7 +43,7 @@ public interface IDrawer {
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        frame.pack();
 //        frame.setVisible(true);
-    }
+    //}
 
 }
 
