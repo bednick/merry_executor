@@ -11,7 +11,6 @@ import edu.uci.ics.jung.visualization.decorators.ToStringLabeller;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Collection;
-import java.util.Set;
 
 /**
  * Created by Anastasia on 17.12.2017.
@@ -42,11 +41,11 @@ public class DrawerGraph implements IDrawer {
                 new VisualizationImageServer(
                         new CircleLayout(g), new Dimension(400, 400));
 
-//        vs.setBackground(Color.WHITE);
-//        vs.getRenderContext().setEdgeLabelTransformer(new ToStringLabeller<GraphEvent.Edge>());
-//        vs.getRenderContext().setEdgeShapeTransformer(new EdgeShape.Line<Node, GraphEvent.Edge>());
-//        vs.getRenderContext().setVertexLabelTransformer(new ToStringLabeller<Node>());
-//        vs.getColorModel();
+        vs.setBackground(Color.WHITE);
+        vs.getRenderContext().setEdgeLabelTransformer(new ToStringLabeller<GraphEvent.Edge>());
+        vs.getRenderContext().setEdgeShapeTransformer(new EdgeShape.Line<GraphEvent.Vertex, GraphEvent.Edge>());
+        vs.getRenderContext().setVertexLabelTransformer(new ToStringLabeller<GraphEvent.Vertex>());
+        vs.getColorModel();
 //        vs.getRenderer().getVertexLabelRenderer()
 //                .setPosition(Renderer.VertexLabel.Position.CNTR);
 
@@ -62,11 +61,11 @@ public class DrawerGraph implements IDrawer {
             g.addVertex(command.getCommand());
             for (String vertex: command.getInStates()){
                 g.addVertex(vertex);
-                g.addEdge("Edge1", command.getCommand(), vertex);
+                g.addEdge("Edge", command.getCommand(), vertex);
             }
             for (String vertex: command.getOutStates()){
                 g.addVertex(vertex);
-                g.addEdge("Edge1", vertex, command.getCommand());
+                g.addEdge("Edge", vertex, command.getCommand());
             }
         }
     }
