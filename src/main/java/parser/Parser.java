@@ -5,6 +5,7 @@ import bricks.Command;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -27,15 +28,19 @@ public class Parser implements IParser {
         readLine(reader);
         while (nextLine != null) {
             if (nextLine.isEmpty() || nextLine.startsWith("##")) {
+                readLine(reader);
                 continue;
             }
             String[] spl = nextLine.split("#")[0].split(";");
             lines.add(new Command(
-                    new HashSet<String>(Arrays.asList(spl[0].split(" "))),
-                    new HashSet<String>(Arrays.asList(spl[1].split(" "))),
-                    spl[2],
-                    Integer.parseInt(nextLine.split("#")[1])
+                    new HashSet<String>(Arrays.stream(spl[0].split(" "))
+                            .filter(l->!l.isEmpty()).collect(Collectors.toSet())),
+                    new HashSet<String>(Arrays.stream(spl[1].split(" "))
+                            .filter(l->!l.isEmpty()).collect(Collectors.toSet())),
+                    spl[2].trim(),
+                    Integer.parseInt(nextLine.split("#")[1].trim())
             ));
+            readLine(reader);
         }
     }
 
