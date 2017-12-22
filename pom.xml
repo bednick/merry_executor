@@ -9,7 +9,7 @@
             http://84.237.50.237:8083
         </sonar.host.url>
         <sonar.project.key>
-            project-key
+            merry-executor
         </sonar.project.key>
     </properties>
 
