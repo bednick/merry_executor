@@ -1,5 +1,7 @@
 package bricks;
 
+import bricks.graph.Vertex;
+
 import java.util.Set;
 
 public class Command {
@@ -29,5 +31,22 @@ public class Command {
 
     public int getWeight() {
         return weight;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Command command = (Command) obj;
+        return this.command.equals(command.command);
+    }
+
+    @Override
+    public int hashCode() {
+        return command.hashCode();
     }
 }
