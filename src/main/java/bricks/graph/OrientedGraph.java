@@ -28,18 +28,22 @@ public class OrientedGraph<T> {
         leaf.add(v);
     }
 
-    public void addEdge(Pair<T, T> edge) {
-        addVertex(edge.getKey());
-        addVertex(edge.getValue());
+    public void addEdge(T start, T finish) {
+        addVertex(start);
+        addVertex(finish);
 
-        Vertex<T> v1 = vertices.get(edge.getKey());
-        Vertex<T> v2 = vertices.get(edge.getValue());
+        Vertex<T> v1 = vertices.get(start);
+        Vertex<T> v2 = vertices.get(finish);
 
         leaf.remove(v1);
         root.remove(v2);
 
         v1.addOut(v2);
         v2.addIn(v1);
+    }
+
+    public void addEdge(Pair<T, T> edge) {
+        addEdge(edge.getKey(), edge.getValue());
     }
 
     public Set<Vertex<T>> getRoot() {
