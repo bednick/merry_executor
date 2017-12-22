@@ -11,15 +11,15 @@ import java.util.Set;
  */
 
 public class Vertex<T> {
-    private Set<Vertex> in;
-    private Set<Vertex> out;
+    private Set<Vertex<T>> in;
+    private Set<Vertex<T>> out;
     private T object;
     private int weight;
 
     public Vertex(@NotNull T object) {
         this.object = object;
-        this.in = new HashSet<Vertex>();
-        this.out = new HashSet<Vertex>();
+        this.in = new HashSet<Vertex<T>>();
+        this.out = new HashSet<Vertex<T>>();
     }
 
     public T getObject() {
@@ -34,27 +34,27 @@ public class Vertex<T> {
         this.weight = weight;
     }
 
-    public void addIn(Vertex vertex) {
+    public void addIn(Vertex<T> vertex) {
         in.add(vertex);
     }
 
-    public void addIn(Collection<Vertex> vertices) {
+    public void addIn(Collection<Vertex<T>> vertices) {
         in.addAll(vertices);
     }
 
-    public void addOut(Vertex vertex) {
+    public void addOut(Vertex<T> vertex) {
         out.add(vertex);
     }
 
-    public void addOut(Collection<Vertex> vertices) {
+    public void addOut(Collection<Vertex<T>> vertices) {
         out.addAll(vertices);
     }
 
-    public Set<Vertex> getIn() {
+    public Set<Vertex<T>> getIn() {
         return in;
     }
 
-    public Set<Vertex> getOut() {
+    public Set<Vertex<T>> getOut() {
         return out;
     }
 
