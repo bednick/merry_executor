@@ -17,8 +17,47 @@ import java.util.Collection;
  */
 public class DrawerGraph implements IDrawer {
 
+    DirectedSparseGraph g;
+
+    DrawerGraph(DirectedSparseGraph graph){
+    }
+
     @Override
     public void draw(Collection<Command> graph) {
+      
+        parse(graph);
+        g = new DirectedSparseGraph();
 
+        VisualizationImageServer vs =
+                new VisualizationImageServer(
+                        new CircleLayout(g), new Dimension(400, 400));
+
+        vs.setBackground(Color.WHITE);
+        vs.getRenderContext().setEdgeLabelTransformer(new ToStringLabeller<GraphEvent.Edge>());
+        vs.getRenderContext().setEdgeShapeTransformer(new EdgeShape.Line<GraphEvent.Vertex, GraphEvent.Edge>());
+        vs.getRenderContext().setVertexLabelTransformer(new ToStringLabeller<GraphEvent.Vertex>());
+        vs.getColorModel();
+//        vs.getRenderer().getVertexLabelRenderer()
+//                .setPosition(Renderer.VertexLabel.Position.CNTR);
+
+        JFrame frame = new JFrame();
+        frame.getContentPane().add(vs);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    private void parse(Collection<Command> graph){
+        for(Command command: graph){
+            g.addVertex(command.getCommand());
+            for (String vertex: command.getInStates()){
+                g.addVertex(vertex);
+                g.addEdge("Edge", command.getCommand(), vertex);
+            }
+            for (String vertex: command.getOutStates()){
+                g.addVertex(vertex);
+                g.addEdge("Edge", vertex, command.getCommand());
+            }
+        }
     }
 }

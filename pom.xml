@@ -17,6 +17,17 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-jar-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<archive>-->
+                        <!--<manifest>-->
+                            <!--<mainClass>drawer.IDrawer</mainClass>-->
+                        <!--</manifest>-->
+                    <!--</archive>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 
@@ -27,11 +38,11 @@
             <artifactId>jung-graph-impl</artifactId>
             <version>2.0.1</version>
         </dependency>
-        <dependency>
-            <groupId>net.sf.jung</groupId>
-            <artifactId>jung2</artifactId>
-            <version>2.0.1</version>
-        </dependency><!-- https://mvnrepository.com/artifact/net.sf.jung/jung-algorithms -->
+        <!--<dependency>-->
+            <!--<groupId>net.sf.jung</groupId>-->
+            <!--<artifactId>jung2</artifactId>-->
+            <!--<version>2.0.1</version>-->
+        <!--</dependency>&lt;!&ndash; https://mvnrepository.com/artifact/net.sf.jung/jung-algorithms &ndash;&gt;-->
         <dependency>
             <groupId>net.sf.jung</groupId>
             <artifactId>jung-algorithms</artifactId>
@@ -43,7 +54,19 @@
             <artifactId>jung-visualization</artifactId>
             <version>2.0.1</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/com.sun/tools -->
+        <!--<dependency>-->
+            <!--<groupId>com.sun</groupId>-->
+            <!--<artifactId>tools</artifactId>-->
+            <!--<version>1.5.0</version>-->
+            <!--<scope>system</scope>-->
+        <!--</dependency>-->
+        <!-- https://mvnrepository.com/artifact/com.sendgrid/sendgrid-java -->
+        <dependency>
+            <groupId>com.sendgrid</groupId>
+            <artifactId>sendgrid-java</artifactId>
+            <version>4.1.2</version>
+        </dependency>
 
     </dependencies>
 

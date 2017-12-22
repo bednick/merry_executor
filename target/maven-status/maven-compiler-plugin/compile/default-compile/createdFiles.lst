@@ -1,6 +1,7 @@
-MerryExecutor.class
 drawer/IDrawer.class
-executor/ISorter.class
 executor/IExecutor.class
+MerryExecutor.class
+executor/ISorter.class
 parser/IParser.class
 bricks/Command.class
+drawer/DrawerGraph.class
