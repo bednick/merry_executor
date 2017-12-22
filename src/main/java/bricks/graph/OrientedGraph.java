@@ -29,6 +29,9 @@ public class OrientedGraph<T> {
     }
 
     public void addEdge(Pair<T, T> edge) {
+        addVertex(edge.getKey());
+        addVertex(edge.getValue());
+
         Vertex<T> v1 = vertices.get(edge.getKey());
         Vertex<T> v2 = vertices.get(edge.getValue());
 
