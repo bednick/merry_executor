@@ -19,14 +19,12 @@ public class DrawerGraph implements IDrawer {
 
     DirectedSparseGraph g;
 
-
     DrawerGraph(DirectedSparseGraph graph){
-
     }
 
     @Override
     public void draw(Collection<Command> graph) {
-
+      
         parse(graph);
         g = new DirectedSparseGraph();
 
