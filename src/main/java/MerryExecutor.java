@@ -2,9 +2,7 @@
 import bricks.Command;
 import drawer.DrawerGraph;
 import drawer.IDrawer;
-import executor.IExecutor;
-import executor.ISorter;
-import executor.SorterLinear;
+import executor.*;
 import parser.IParser;
 import parser.Parser;
 
@@ -16,16 +14,19 @@ public class MerryExecutor {
     public static void main(String[] args) {
         IParser parser = new Parser();
         ISorter sorter = new SorterLinear();
-        IExecutor executor = null;
+        IExecutor executor = new Executor();
         IDrawer drawer = new DrawerGraph();
-        String[] nameOut = Arrays.copyOfRange(args, 1, args.length);
+        //String[] nameOut = Arrays.copyOfRange(args, 1, args.length);
+        String[] nameOut = {"step_16", "step_14"};
         try {
-            parser.load(args[0]);
+            parser.load("examples/example_start.cm");
             Collection<Command> commands = parser.getData();
             List<String> sort = sorter.sort(commands, new ArrayList<>(Arrays.asList(nameOut)), getEnvironment());
-            //executor.exec(sort);
             drawer.draw(commands);
+            executor.exec(sort);
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (FailProcessingException e) {
             e.printStackTrace();
         }
     }

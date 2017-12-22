@@ -26,9 +26,8 @@ public class DrawerGraph implements IDrawer {
     
     @Override
     public void draw(Collection<Command> graph) {
-      
-        parse(graph);
         g = new DirectedSparseGraph();
+        parse(graph);
 
         VisualizationImageServer vs =
                 new VisualizationImageServer(
