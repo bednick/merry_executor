@@ -4,6 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <sonar.host.url>
+            http://84.237.50.237:8083
+        </sonar.host.url>
+        <sonar.project.key>
+            project-key
+        </sonar.project.key>
+    </properties>
+
     <groupId>merry_executor</groupId>
     <artifactId>merry_executor</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -16,6 +25,22 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.4.0.905</version>
+                <executions>
+                    <execution>
+                        <id>agent-for-ut</id>
+                        <phase>
+                            package
+                        </phase>
+                        <goals>
+                            <goal>sonar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <!--<plugin>-->
                 <!--<groupId>org.apache.maven.plugins</groupId>-->
