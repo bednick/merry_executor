@@ -11,7 +11,7 @@ public class Executor implements IExecutor
 		{
 			for (String command : commands)
 			{
-				
+
 				Process pr = start(command);
 				while (pr.isAlive())
 				{
