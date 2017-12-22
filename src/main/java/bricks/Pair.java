@@ -32,4 +32,21 @@ public class Pair<K, V> {
     public String toString() {
         return String.format("Pair <%s  %s>", key, value);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Pair pair = (Pair) obj;
+        return this.key.equals(pair.key) && this.value.equals(pair.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return key.hashCode();
+    }
 }
