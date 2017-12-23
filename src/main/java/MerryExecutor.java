@@ -35,9 +35,11 @@ public class MerryExecutor {
         File myFolder = new File(".");
         File[] files = myFolder.listFiles();
         Set<String> environment = new HashSet<>();
-        for (File file: files) {
-            if (file.isFile()) {
-                environment.add(file.getName());
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    environment.add(file.getName());
+                }
             }
         }
         return environment;
