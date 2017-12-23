@@ -24,10 +24,8 @@ public class MerryExecutor {
             List<String> sort = sorter.sort(commands, new ArrayList<>(Arrays.asList(nameOut)), getEnvironment());
             drawer.draw(commands);
             executor.exec(sort);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (FailProcessingException e) {
-            e.printStackTrace();
+        } catch (IOException | FailProcessingException e) {
+            System.err.println(e.getMessage());
         }
     }
 

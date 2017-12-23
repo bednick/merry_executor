@@ -1,0 +1,6 @@
+projectKey=merry_executor:merry_executor
+serverUrl=http://84.237.50.237:8083
+serverVersion=6.5.0.27846
+dashboardUrl=http://84.237.50.237:8083/dashboard/index/merry_executor:merry_executor
+ceTaskId=AWCCFIegCx_FR-0SkIsr
+ceTaskUrl=http://84.237.50.237:8083/api/ce/task?id=AWCCFIegCx_FR-0SkIsr
