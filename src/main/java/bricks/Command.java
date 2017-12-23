@@ -1,7 +1,5 @@
 package bricks;
 
-import bricks.graph.Vertex;
-
 import java.util.Set;
 
 public class Command {
