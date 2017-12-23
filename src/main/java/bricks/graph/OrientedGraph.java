@@ -18,19 +18,20 @@ public class OrientedGraph<T> {
         leaf = new HashSet<>();
     }
 
-    public void addVertex(T vertex) {
+    public void addVertex(T vertex, int weight) {
         if (vertices.containsKey(vertex)) {
             return;
         }
         Vertex<T> v = new Vertex<T>(vertex);
+        v.setWeight(weight);
         vertices.put(vertex, v);
         root.add(v);
         leaf.add(v);
     }
 
     public void addEdge(T start, T finish) {
-        addVertex(start);
-        addVertex(finish);
+        addVertex(start, 0);
+        addVertex(finish, 0);
 
         Vertex<T> v1 = vertices.get(start);
         Vertex<T> v2 = vertices.get(finish);
