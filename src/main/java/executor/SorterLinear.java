@@ -17,6 +17,7 @@ public class SorterLinear implements ISorter{
         for (Command command: allCommands) {
             String com = command.getCommand();
             Pair<String, Integer> pairCom = new Pair<>(com, command.getWeight());
+            graph.addVertex(pairCom, command.getWeight());
             for (String in: command.getInStates()) {
                 graph.addEdge(new Pair<>(in, 0), pairCom);
             }
